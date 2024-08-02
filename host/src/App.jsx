@@ -6,16 +6,28 @@ import { lazy, Suspense } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Ballooning from "./Ballooning";
+import Navbar from "./components/Navbar";
+import SideNav from "./components/SideNav";
+
 const MappEye = lazy(() => import("mappEye/MappEye"));
 
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ballooning" element={<Ballooning />} />
-        <Route path="/mappZen" element={<MappZen />} />
-      </Routes>
+      <div className="flex h-screen">
+        <Navbar />
+        <SideNav />
+        <div className="h-full bg-green-300">
+        </div>
+        {/* <Routes>
+          <Route path="/" element={<Ballooning />} />
+          <Route path="/ballooning" element={<Button />} />
+          <Route path="/mappZen" element={<MappZen />} />
+        </Routes>
+ */}
+        
+      </div>
+      
     </>
   );
 }
@@ -24,8 +36,11 @@ export function Home() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      <h1>Host Application</h1>
+    <div className="flex h-screen">
+      {/* <Navbar /> */}
+      {/* <SideNav /> */}
+
+      {/* <h1>Host Application</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
       </div>
@@ -48,8 +63,8 @@ export function Home() {
             <MappEye />
           </Suspense>
         )}
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 }
 

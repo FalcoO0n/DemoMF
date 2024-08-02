@@ -9,10 +9,10 @@ function MappZen() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="m-1 border-2">
       <p className="text-3xl font-bold text-red-400">Hello From MappZen MicrofrontEnd</p>
       <Link to="/ballooning">Ballooning Page</Link>
-    </>
+    </div>
   );
 }
 

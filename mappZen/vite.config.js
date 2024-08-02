@@ -13,7 +13,7 @@ export default defineConfig({
       exposes: {
         "./MappZen": "./src/App",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   resolve: {
