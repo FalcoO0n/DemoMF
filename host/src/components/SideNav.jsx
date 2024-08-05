@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import ClickUpMenu from "./ClickUpMenu";
 import { Separator } from "@/components/ui/separator";
+import { Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "/", icon: <HomeIcon className="mr-2 size-5" /> },
@@ -39,7 +40,7 @@ const navItems = [
     href: "/mappZen",
     icon: <ClipboardDocumentIcon className="mr-2 size-5" />,
   },
-  { label: "SPC", href: "/mappZen", icon: <DocumentMagnifyingGlassIcon className="mr-2 size-5" /> },
+  { label: "SPC", href: "/mappEye", icon: <DocumentMagnifyingGlassIcon className="mr-2 size-5" /> },
   { label: "Configuration", href: "/mappZen", icon: <InboxStackIcon className="mr-2 size-5" /> },
 ];
 
@@ -48,9 +49,9 @@ function SideNav({ items = navItems }) {
 
   return (
     <div
-      className={`h-[calc(100%-40px)] ${
+      className={`h-full ${
         isCollapsed ? "w-[50px]" : "w-[240px]"
-      } bg-gray-800 text-white fixed bottom-0 left-0 flex flex-col transition-width duration-300`}
+      } bg-gray-800 text-white  flex flex-col transition-width duration-300`}
     >
       <div className="flex items-center justify-between p-4 text-lg font-bold border-b border-gray-700">
         {isCollapsed ? null : (
@@ -76,10 +77,10 @@ function SideNav({ items = navItems }) {
       <ul className={`flex-grow ${isCollapsed ? "block" : "block"}`}>
         {items.map((item) => (
           <li key={item.label} className="flex items-center p-4 hover:bg-gray-700">
-            <a href={item.href} className="flex items-center">
+            <Link to={item.href} className="flex items-center">
               {item.icon}
               <span className={`${isCollapsed ? "hidden" : "block"}`}>{item.label}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

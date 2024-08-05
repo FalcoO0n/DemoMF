@@ -15,20 +15,43 @@ const MappEye = lazy(() => import("mappEye/MappEye"));
 function App() {
   return (
     <>
-      <div className="flex h-screen">
-        <Navbar />
-        <SideNavItems />
-        <ChatBot /> 
-       
-        {/* <Routes>
-          <Route path="/" element={<Ballooning />} />
-          <Route path="/ballooning" element={<Button />} />
-          <Route path="/mappZen" element={<MappZen />} />
-        </Routes>
- */}
-        
-      </div>
-      
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Ballooning />
+            </Layout>
+          }
+        />
+        <Route
+          path="/ballooning"
+          element={
+            <Layout>
+              {" "}
+              <Button />{" "}
+            </Layout>
+          }
+        />
+        <Route
+          path="/mappZen"
+          element={
+            <Layout>
+              {" "}
+              <MappZen />{" "}
+            </Layout>
+          }
+        />
+        <Route
+          path="/mappEye"
+          element={
+            <Layout>
+              {" "}
+              <DemoApp />{" "}
+            </Layout>
+          }
+        />
+      </Routes>
     </>
   );
 }
@@ -36,11 +59,25 @@ function App() {
 export function Home() {
   const [count, setCount] = useState(0);
 
-  return (
-    <div className="flex h-screen">
-  
-    </div>
-  );
+  return <div className="flex h-screen"></div>;
 }
 
 export default App;
+
+function Layout({ children }) {
+  return (
+    <div className="flex flex-col h-screen bg-white">
+      <div>
+        <Navbar />
+      </div>
+      <div className="flex flex-row h-[calc(100vh-40px)]">
+        <SideNavItems />
+        <ChatBot />
+        <div className="flex flex-col w-full h-[100%] overflow-y-auto">
+          {/* Childrens */}
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
